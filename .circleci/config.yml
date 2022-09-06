@@ -18,7 +18,7 @@ jobs:
       - run:
           name: "Say hello"
           command: |
-           "echo $sadvar"
+           echo $sadvar
 workflows:
   say-hello-workflow:
     jobs:

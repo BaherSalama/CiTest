@@ -17,7 +17,8 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command: "echo $sadvar"
+          command: |
+           "echo $sadvar"
 workflows:
   say-hello-workflow:
     jobs:

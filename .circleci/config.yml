@@ -9,9 +9,9 @@ jobs:
       - run:
           name: "Say hello"
           command: |
-            echo "sad as hell" > output.txt
+            echo "sad as hell" > ~/output.txt
       - persist_to_workspace:
-          root: /
+          root: ~/
           paths:
             - output.txt
 
@@ -21,11 +21,11 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /
+          at: ~/
       - run:
           name: "Say hello"
           command: |
-           cat output.txt
+           cat ~/output.txt
 
 workflows:
   say-hello-workflow:

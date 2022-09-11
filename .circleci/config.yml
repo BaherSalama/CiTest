@@ -8,17 +8,25 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command: "echo Hello"
+          command: |
+            echo "sad as hell" > output.txt
+      - persist_to_workspace:
+          root: /
+          paths:
+            - output.txt
 
   print_world:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - checkout
+      - attach_workspace:
+          at: /
       - run:
           name: "Say hello"
           command: |
-           echo $sadvar
+           cat output.txt
+
 workflows:
   say-hello-workflow:
     jobs:

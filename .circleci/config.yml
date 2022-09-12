@@ -1,11 +1,18 @@
 version: 2.1
 
+commands:
+  sayhello:
+    description: "A very simple command for demonstration purposes"
+    steps:
+      - run: echo $CIRCLE_WORKFLOW_ID
+
 jobs:
   print_hello:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - checkout
+      - sayhellow
       - run:
           name: "Say hello"
           command: |
